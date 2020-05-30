@@ -5,6 +5,7 @@ fun main() {
     nestedMatrix()
     nestedMatrix2()
     contentDeep()
+    cookBook()
 
 }
 
@@ -77,4 +78,9 @@ fun contentDeep() {
 
     println(arr.contentDeepToString())
 
+}
+
+fun cookBook() {
+    val n = 3
+    val array = Array(n, {IntArray(n){-1}})
 }

@@ -2,7 +2,7 @@ fun records(scores: Array<Int>): Array<Int> {
 
 
     var records = arrayOf(0, 0)
-    var high = -1
+    var high = -1 // -1 is score that cant be duplicated so it the starting value
     var low = -1
 
     for(i in scores) {

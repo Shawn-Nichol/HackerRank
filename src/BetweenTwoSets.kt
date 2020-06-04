@@ -1,4 +1,3 @@
-
 // int being considered is divisible by all ints array a
 // int being considered is is a factor of the ints in array b
 fun getTotalX(a: Array<Int>, b: Array<Int>): Int {
@@ -7,25 +6,46 @@ fun getTotalX(a: Array<Int>, b: Array<Int>): Int {
     println("a size: ${a.size} b size: ${b.size}")
 
     var count = 0
-    var considered = mutableListOf<Int>()
 
+    for (i in a.max()!!..b.min()!!) {
 
-        for(i in a.max()!!..b.min()!!) {
+        var check1 = 0
+        var check2 = 0
 
-            if(i % a[0]== 0 && i % a[1] == 0 && b[0] % i == 0 && b[1] % i == 0) {
-                considered.add(i)
-
-                println("${considered[count]}, size: ${considered.size}")
-                count++
+        for (j in a.indices) {
+            if (i % a[j] == 0) {
+                check1 = 1
+            } else {
+                check1 = 0
+                break
             }
 
+            if (j == a.size - 1 && check1 == 1) {
+                println("array is a factory $i")
+            }
 
 
         }
 
+        for (k in b.indices) {
+
+            if (b[k] % i == 0) {
+
+                check2 = 1
+            } else {
+                check2 = 0
+                break
+            }
+
+            if (k == b.size - 1 && check2 == 1) println("element is a factor $i")
+        }
 
 
-    return considered.size
+        if (check1 == 1 && check2 == 1) count++
+    }
+
+
+    return count
 }
 
 fun main() {
